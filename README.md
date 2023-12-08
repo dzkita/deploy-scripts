@@ -1,39 +1,21 @@
-# <h1 align="center"> Forge Template </h1>
-
-**Template repository for getting started quickly with Foundry projects**
-
-![Github Actions](https://github.com/foundry-rs/forge-template/workflows/CI/badge.svg)
+# <h1 align="center"> Deploy-scripts </h1>
 
 ## Getting Started
 
-Click "Use this template" on [GitHub](https://github.com/foundry-rs/forge-template) to create a new repository with this repo as the initial state.
+In order to be able to use this scripts, please follow the following steps:
 
-Or, if your repo already exists, run:
+1. Enter the terminal and use the command `make install-dep`
 ```sh
-forge init
-forge build
-forge test
+    $ make install-dep
+``` 
+This will install `OpenZeppelin` contracts (base contracts & upgradeable ones).
+
+2. Create an `.env` file. 
+3. Fill the `.env` file with the desired data. It will depend wich script you decide to use, the params that are required to be stored in the file.
+4. Set the rpc url in the `foundry.toml`
+```foundry.toml
+    [rpc_endpoints]
+    llhh='http://127.0.0.1:8545'
+    mumbai='http://..../${YOUR_API_KEY}'
 ```
-
-## Writing your first test
-
-All you need is to `import forge-std/Test.sol` and then inherit it from your test contract. Forge-std's Test contract comes with a pre-instatiated [cheatcodes environment](https://book.getfoundry.sh/cheatcodes/), the `vm`. It also has support for [ds-test](https://book.getfoundry.sh/reference/ds-test.html)-style logs and assertions. Finally, it supports Hardhat's [console.log](https://github.com/brockelmore/forge-std/blob/master/src/console.sol). The logging functionalities require `-vvvv`.
-
-```solidity
-pragma solidity 0.8.10;
-
-import "forge-std/Test.sol";
-
-contract ContractTest is Test {
-    function testExample() public {
-        vm.roll(100);
-        console.log(1);
-        emit log("hi");
-        assertTrue(true);
-    }
-}
-```
-
-## Development
-
-This project uses [Foundry](https://getfoundry.sh). See the [book](https://book.getfoundry.sh/getting-started/installation.html) for instructions on how to install and use Foundry.
+In case you are using other chain that is not localhost, you will need a rpc end point to uploead a transaction into that network. 
