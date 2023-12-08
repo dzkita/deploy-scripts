@@ -1,0 +1,4 @@
+install-dep:
+  forge install https://github.com/OpenZeppelin/openzeppelin-contracts --no-commit
+	forge install https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable --no-commit
+	forge install https://github.com/abdk-consulting/abdk-libraries-solidity --no-commit
